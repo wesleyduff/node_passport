@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+  
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul>
+              <li><strong>Collection of Projects : {{projects.length}}</strong>
+                {% if projects.length %}
+                  <ul>
+                    {% for project in projects %}
+                      <li>{{project.title}}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+            <form class="col-xs-12" action="projects" method="post">
+                <fieldset>Add Project</fieldset>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">@</span>
+                  <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1" name="projectTitle">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">@</span>
+                  <input type="text" class="form-control" placeholder="Type" aria-describedby="basic-addon1" name="projectType">
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>

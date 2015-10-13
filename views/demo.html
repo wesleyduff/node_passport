@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+  
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul>
+            <li>Collection {{ demos.length }}
+              <ol>
+                  {% for d in demos %}
+                   <li>{{ d.name }}</li>
+                  {% endfor %}
+              </ol>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+        <div class="row">
+            <form class="col-xs-12" action="demo" method="post">
+                <fieldset>Add Demo</fieldset>
+                <br />
+                <div class="input-group">
+                  <select name="project">
+                    <option value="none">(select a project)</option>
+                    {% for project in projects %}
+                      <option value="{{project._id.toString()}}">{{project.title}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <br/>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">@</span>
+                  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" name="demoName">
+                </div>
+                <br/>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
